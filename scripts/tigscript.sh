@@ -2,6 +2,7 @@
 
 # Script parameters from arguments
 configfile=$1
+sshcommand=$2
 HostIP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 
@@ -27,6 +28,6 @@ wget $configfile
 unzip Configfiles.zip -d /home/Configfiles/
 
 
-HOME=/root ansible-playbook /home/Configfiles/ansible/docker_install.yml  --extra-vars "HostIP=$HostIP" -vvv
+HOME=/root ansible-playbook /home/Configfiles/ansible/docker_install.yml  --extra-vars "HostIP=$HostIP sshcommand=$sshcommand" -vvv
 
 
